@@ -13,7 +13,7 @@ export default function AfterloginInterface() {
   const fetchAllFriends = async () => {
     try {
       const friends = await fetch(
-        import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/modifyfriends/getfriends",
+        import.meta.env.VITE_BACKEND_URL+"/modifyfriends/getfriends",
         {
           method: "GET",
           mode: "cors",
@@ -58,14 +58,8 @@ export default function AfterloginInterface() {
     context.socket.connect();
     context.socket.emit("add-user", context.loggedIn.email);
 
-    window.addEventListener("beforeunload", () => {
-      context.socket.emit("remove-user", context.loggedIn.email);
-      context.socket.disconnect();
-    });
-
     context.socket.on("online-users", (data) => {
-      const set = new Set(data);
-      context.setOnlineUsers(set);
+      context.setOnlineUsers(data);
     });
 
     return () => {

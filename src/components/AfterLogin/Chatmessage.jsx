@@ -8,7 +8,7 @@ export default forwardRef(function Chatmessage(props, ref) {
   const readMessage = async () => {
     try {
       const response = await fetch(
-        import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/communicate/readmessage",
+        import.meta.env.VITE_BACKEND_URL+"/communicate/readmessage",
         {
           headers: {
             "content-type": "application/json",

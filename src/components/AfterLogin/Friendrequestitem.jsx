@@ -12,7 +12,7 @@ export default function friendrequestitem(props) {
 
   const acceptFriendRequest = async () => {
     try {
-      const friends = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/modifyfriends/acceptfriendrequest", {
+      const friends = await fetch(import.meta.env.VITE_BACKEND_URL+"/modifyfriends/acceptfriendrequest", {
         method: 'PUT',
         mode: "cors",
         headers: {
@@ -41,7 +41,7 @@ export default function friendrequestitem(props) {
 
   const rejectFriendRequest = async () => {
     try {
-      const friends = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/modifyfriends/rejectfriendrequest", {
+      const friends = await fetch(import.meta.env.VITE_BACKEND_URL+"/modifyfriends/rejectfriendrequest", {
         method: 'PUT',
         mode: "cors",
         headers: {

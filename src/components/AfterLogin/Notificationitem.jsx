@@ -9,7 +9,7 @@ export default function Notificationitem(props) {
   }
   const clearnotification = async () => {
     try {
-      const notifications = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/modifyfriends/clearnotification", {
+      const notifications = await fetch(import.meta.env.VITE_BACKEND_URL+"/modifyfriends/clearnotification", {
         method: 'PUT',
         mode: "cors",
         headers: {

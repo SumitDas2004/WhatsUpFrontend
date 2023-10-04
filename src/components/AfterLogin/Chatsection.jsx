@@ -38,7 +38,7 @@ export default function Chatsection() {
     context.setMessages([])
     try {
       const response = await fetch(
-        import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/communicate/getallmessages",
+        import.meta.env.VITE_BACKEND_URL+"/communicate/getallmessages",
         {
           headers: {
             "content-type": "application/json",
@@ -71,7 +71,7 @@ export default function Chatsection() {
   const sendMessage = async () => {
     try {
       const response = await fetch(
-        import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/communicate/sendmessage",
+        import.meta.env.VITE_BACKEND_URL+"/communicate/sendmessage",
         {
           headers: {
             "content-type": "application/json",
@@ -110,7 +110,7 @@ export default function Chatsection() {
   const fetchAllFriends = async () => {
     try {
       const friends = await fetch(
-        import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/modifyfriends/getfriends",
+        import.meta.env.VITE_BACKEND_URL+"/modifyfriends/getfriends",
         {
           method: "GET",
           mode: "cors",
@@ -179,7 +179,9 @@ export default function Chatsection() {
             <span className="text-sm text-gray-500">
               {context.isTyping
                 ? "Typing..."
-                : context.onlineUsers.has(context.chatSelected.email)
+                : context.onlineUsers.some(e=>{
+                  return e.email===context.chatSelected.email
+                })
                 ? "Online"
                 : "Offline"}
             </span>

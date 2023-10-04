@@ -17,7 +17,7 @@ export default function Chatmenu(props) {
   const fetchAllNotifications = async () => {
     try {
       const notifications = await fetch(
-        import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/modifyfriends/fetchallnotifications",
+        import.meta.env.VITE_BACKEND_URL+"/modifyfriends/fetchallnotifications",
         {
           method: "GET",
           mode: "cors",
@@ -58,7 +58,7 @@ export default function Chatmenu(props) {
   const fetchFriendRequest = async () => {
     try {
       const friends = await fetch(
-        import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/modifyfriends/getfriendrequests",
+        import.meta.env.VITE_BACKEND_URL+"/modifyfriends/getfriendrequests",
         {
           method: "GET",
           mode: "cors",
@@ -98,7 +98,7 @@ export default function Chatmenu(props) {
     setChatsLoading(true);
     try {
       const friends = await fetch(
-        import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/modifyfriends/getfriends",
+        import.meta.env.VITE_BACKEND_URL+"/modifyfriends/getfriends",
         {
           method: "GET",
           mode: "cors",

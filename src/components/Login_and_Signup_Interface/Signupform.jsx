@@ -17,7 +17,7 @@ export default function Signupform() {
   const googleSignup = async (data) => {
     context.setLoadingScreen(true);
     try {
-      const response = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+'/auth/googlesignup',
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL+'/auth/googlesignup',
         {
           method: "POST",
           mode: "cors",
@@ -49,7 +49,7 @@ export default function Signupform() {
   const normalSignUp= async(data)=>{
     context.setLoadingScreen(true);
     try{
-    const response = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+'/auth/signup',
+    const response = await fetch(import.meta.env.VITE_BACKEND_URL+'/auth/signup',
         {
           method: "POST",
           mode: "cors",

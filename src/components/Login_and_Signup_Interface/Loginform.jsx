@@ -14,7 +14,7 @@ export default function Loginform() {
   const googleLogin = async (data) => {
     context.setLoadingScreen(true);
     try {
-      const response = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/auth/googlelogin", {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL+"/auth/googlelogin", {
         method: "POST",
         mode: "cors",
         headers: { "Content-type": "application/json" },
@@ -44,7 +44,7 @@ export default function Loginform() {
   const normalLogin = async (data) => {
     context.setLoadingScreen(true);
     try {
-      const response = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/auth/login", {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL+"/auth/login", {
         method: "POST",
         mode: "cors",
         headers: { "Content-type": "application/json" },

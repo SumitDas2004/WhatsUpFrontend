@@ -12,7 +12,7 @@ export default function Appbody() {
   const checkLoggedIn = async () => {
     try {
       context.setLoadingScreen(true);
-      const res = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/auth/isloggedin", {
+      const res = await fetch(import.meta.env.VITE_BACKEND_URL+"/auth/isloggedin", {
         method: "GET",
         mode: "cors",
         headers: {

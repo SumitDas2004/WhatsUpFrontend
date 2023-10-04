@@ -50,7 +50,7 @@ export default function Myprofiledrawer(props) {
     return jsonRes.secure_url;
   };
   const changeDp = async (url) => {
-    const upload = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/auth/uploaddp", {
+    const upload = await fetch(import.meta.env.VITE_BACKEND_URL+"/auth/uploaddp", {
       mode: "cors",
       method: "POST",
       headers: {
@@ -72,7 +72,7 @@ export default function Myprofiledrawer(props) {
   const changeUsername = async (newName) => {
     setUpdatingUserName(true);
     const changeName = await fetch(
-      import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/auth/updateusername",
+      import.meta.env.VITE_BACKEND_URL+"/auth/updateusername",
       {
         mode: "cors",
         method: "PUT",
@@ -96,7 +96,7 @@ export default function Myprofiledrawer(props) {
   const changeDescription = async (newDescription) => {
     setUpdatingUsersDescription(true);
     const description = await fetch(
-      import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/auth/updatedescription",
+      import.meta.env.VITE_BACKEND_URL+"/auth/updatedescription",
       {
         mode: "cors",
         method: "PUT",

@@ -27,7 +27,7 @@ export default function Contextwrapper({ children }) {
   const secretKey = "sdfdthfgfgger#y@#@$#$#%ghmjkrht/-9+9+/+8by667564545evrg4v5y57";
 
   useEffect(() => {
-    setSocket(io(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT));
+    setSocket(io(import.meta.env.VITE_BACKEND_URL));
   }, []);
 
 

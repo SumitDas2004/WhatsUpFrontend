@@ -8,7 +8,7 @@ export default function Sendfriendrequestform() {
 
   const sendFriendRequest = async (user) => {
     try {
-      const response = await fetch(import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+'/modifyfriends/sendfriendrequest', {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL+'/modifyfriends/sendfriendrequest', {
         method: 'PUT',
         mode: 'cors',
         headers: {
