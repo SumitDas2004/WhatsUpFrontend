@@ -70,7 +70,6 @@ export default function Chatsection() {
   };
   const sendMessage = async () => {
     try {
-      refToMessageInput.current.innerText = "";
       const response = await fetch(
         import.meta.env.VITE_BACKEND_URL+import.meta.env.VITE_BACKEND_PORT+"/communicate/sendmessage",
         {
@@ -93,6 +92,7 @@ export default function Chatsection() {
       }
       const jsonRes = await response.json();
       context.setMessages([...context.messages, jsonRes.message]);
+      refToMessageInput.current.innerText = "";
       const arr = [context.chatSelected.email, context.loggedIn.email];
       arr.sort();
       context.socket.emit("send-message", {
