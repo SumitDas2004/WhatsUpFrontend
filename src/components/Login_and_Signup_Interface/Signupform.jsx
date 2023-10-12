@@ -110,7 +110,7 @@ export default function Signupform() {
             const res = googleSignup({ email: googleData.email.toLowerCase(), picture: googleData.picture });
           }}
           onError={() => {
-            console.log('Login Failed');
+            context.setAlert({status:false, message:"Login failed."});
           }} />
       </span>
     </>

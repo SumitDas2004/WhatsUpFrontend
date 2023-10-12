@@ -8,7 +8,7 @@ export default function Contextwrapper({ children }) {
   const [loggedIn, setLoggedIn] = useState(null);
   const [friends, setFriends] = useState([]);
   const defaultProfile = useRef(
-    "https://shorturl.at/cjtyQ"
+    "https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png"
   );
   const [chatSelected, setChatSelected] = useState(false);
   const [friendRequests, setfriendRequests] = useState([]);

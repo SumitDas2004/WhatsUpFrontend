@@ -131,7 +131,7 @@ export default function Loginform() {
             });
           }}
           onError={() => {
-            console.log("Login Failed");
+            context.setAlert({status:false, message:"Login failed."});
           }}
           clientId={
             "366213588806-c7nptko9pdsumb33hhmke0h57nn2qcd6.apps.googleusercontent.com"

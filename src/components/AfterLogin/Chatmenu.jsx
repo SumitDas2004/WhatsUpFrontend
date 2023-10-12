@@ -141,9 +141,13 @@ export default function Chatmenu(props) {
 
   const refToMenu = useRef();
 
+  const refToAddFriendButton = useRef(null);
+
+  
+
   useEffect(() => {
     const f = (e) => {
-      if (refToFriendRequestForm.current.contains(e.target))
+      if (refToFriendRequestForm.current.contains(e.target) || (refToAddFriendButton.current && refToAddFriendButton.current.contains(e.target)))
         setsendRequestFormVisible(true);
       else setsendRequestFormVisible(false);
 
@@ -220,7 +224,8 @@ export default function Chatmenu(props) {
             className=" cursor-pointer ml-3 h-14 w-14 rounded-full overflow-hidden flex justify-center "
           >
             <img
-              src={context.loggedIn.picture || "https://shorturl.at/cjtyQ"}
+            className="bg-white"
+              src={context.loggedIn.picture || "https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png"}
               alt="Image not found."
             />
           </span>
@@ -282,7 +287,7 @@ export default function Chatmenu(props) {
         <div className="h-14 w-full flex items-center justify-center bg-white">
           <span className="relative w-[80%] h-10">
             {(friendSearchBoxFocused || friendSearchBox.length>0) && (
-              <i className="fa-solid fa-arrow-right text-blue-600 absolute left-3 top-3 rotate-180"></i>
+              <i className="fa-solid fa-arrow-right text-blue-600 absolute left-3 top-3 rotate-180 cursor-pointer"></i>
             )}
             {(!friendSearchBoxFocused && friendSearchBox.length<=0) && (
               <i className="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-600"></i>
@@ -334,7 +339,7 @@ export default function Chatmenu(props) {
             })
           ) : (
             <span className=" h-full w-full flex justify-center items-center text-slate-700">
-              No friends found
+              <span onClick={() => setsendRequestFormVisible(true)} ref={refToAddFriendButton} className="bg-blue-500 text-white flex justify-center items-center rounded-md p-2 cursor-pointer select-none"><i className="fa-solid fa-plus text-xl"></i> &nbsp; Add friend</span>
             </span>
           ))}
         {chatsLoading && (

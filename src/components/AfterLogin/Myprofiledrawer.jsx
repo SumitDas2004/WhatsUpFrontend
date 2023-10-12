@@ -139,8 +139,8 @@ export default function Myprofiledrawer(props) {
           className={` rounded-full overflow-hidden h-48 w-48 flex cursor-pointer relative`}
         >
           <img
-            className="w-full z-10 hover:z-0"
-            src={context.loggedIn.picture || "https://shorturl.at/cjtyQ"}
+            className="w-full z-10 hover:z-0 bg-white"
+            src={context.loggedIn.picture || "https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png"}
             alt="Image not found"
           />
           <label

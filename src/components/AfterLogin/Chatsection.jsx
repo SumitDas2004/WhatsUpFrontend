@@ -5,6 +5,7 @@ import { reactLocalStorage } from "reactjs-localstorage";
 import EmojiPicker from "emoji-picker-react";
 import { ClimbingBoxLoader } from "react-spinners";
 import CryptoJS from 'crypto-js';
+import ThreeDotLoader from "./threeDotLoader";
 
 export default function Chatsection() {
   const context = useContext(Appcontext);
@@ -32,6 +33,7 @@ export default function Chatsection() {
   const refToEmojiKeyboard = useRef();
   const refToEmojiButton = useRef();
   const [messageLoading, setMessageLoading] = useState(false)
+  const [sendingMessage, setSendingMessage] = useState(false)
 
   const getallmessages = async () => {
     const timeout=setTimeout(()=>setMessageLoading(true), 100);
@@ -70,6 +72,7 @@ export default function Chatsection() {
   };
   const sendMessage = async () => {
     try {
+      setSendingMessage(true);
       const response = await fetch(
         import.meta.env.VITE_BACKEND_URL+"/communicate/sendmessage",
         {
@@ -100,11 +103,13 @@ export default function Chatsection() {
         roomId: arr[0] + arr[1],
       });
       refToEndOfChat.current.scrollIntoView();
+      setSendingMessage(false);
     } catch (e) {
       context.setAlert({
         status: false,
         message: "Some internal error occured :(",
       });
+      setSendingMessage(false);
     }
   };
   const fetchAllFriends = async () => {
@@ -167,7 +172,7 @@ export default function Chatsection() {
       <nav className=" bg-slate-200 h-20 sticky top-0 w-full flex p-4 items-center justify-between select-none">
         <span className="flex items-center">
           <span
-            className=" ml-3 h-14 w-14 rounded-full overflow-hidden bg-black cursor-pointer flex" title='Profile Details'
+            className=" ml-3 h-14 w-14 rounded-full overflow-hidden bg-white cursor-pointer flex" title='Profile Details'
             onClick={() => context.setProfileVisible(true)}
           >
             <img src={context.chatSelected.picture} alt="Image not found."  />
@@ -290,7 +295,7 @@ export default function Chatsection() {
         </span>}
         <span
           onClick={() => refToEndOfChat.current.scrollIntoView()}
-          className={` transition-all h-12 w-12 rounded-full bg-white text-lg shadow-xl cursor-pointer flex justify-center items-center text-gray-600 sticky float-right right-2 bottom-4 ${endOfChatVisible}`}
+          className={` transition-all h-12 w-12 rounded-full bg-red-400 text-white text-lg shadow-xl cursor-pointer flex justify-center items-center  sticky float-right right-2 bottom-4 ${endOfChatVisible}`}
         >
           <i className="fa-solid fa-angle-down"></i>
         </span>
@@ -368,7 +373,7 @@ export default function Chatsection() {
             <i className="fa-solid fa-microphone"></i>
           </span>
         ) : (*/}
-        <span
+        {!sendingMessage && <span
           className=" h-16 w-14 flex items-center justify-center cursor-pointer text-2xl text-slate-600 mr-4 ml-2 active:text-blue-500"
           onClick={async () => {
             if (
@@ -390,7 +395,8 @@ export default function Chatsection() {
           }}
         >
           <i className="fa-solid fa-paper-plane"></i>
-        </span>
+        </span>}
+        {sendingMessage && <ThreeDotLoader />}
         {/* )} */}
       </section>
     </div>

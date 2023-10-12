@@ -5,7 +5,7 @@ import CryptoJS from "crypto-js";
 
 export default function ChatMenuItems(props) {
   const context = useContext(Appcontext);
-  
+  const lastMessage = props.data.lastMessage.content?CryptoJS.AES.decrypt(props.data.lastMessage.content, context.secretKey.toString()).toString(CryptoJS.enc.Utf8):"";
   return (
     
     <div
@@ -21,15 +21,16 @@ export default function ChatMenuItems(props) {
     >
       <span className="h-14 w-14 rounded-full ml-3 overflow-hidden flex bg-slate-300">
         <img
+            className="bg-white"
           src={
-            props.data.picture || 'https://shorturl.at/cjtyQ'}
+            props.data.picture || 'https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png'}
           alt="Image not found."
         />
       </span>
       <span className="flex flex-col ml-3 w-4/6">
         <span className="text-black text-lg w-5/6" title={props.data.username}>{props.data.username}</span>
-        <span className="text-slate-500 text-sm w-5/6 h-6 overflow-hidden" title={props.data.lastMessage.content && props.data.lastMessage.content.length>50?"...":props.data.lastMessage.content}>
-          {props.data.lastMessage.content && CryptoJS.AES.decrypt(props.data.lastMessage.content, context.secretKey.toString()).toString(CryptoJS.enc.Utf8)}
+        <span className="text-slate-500 text-sm w-5/6 h-6 overflow-hidden" title={props.data.lastMessage.content && lastMessage>50?"...":lastMessage}>
+          {props.data.lastMessage.content && lastMessage}
         </span>
       </span>
       <div className="flex flex-col justify-evenly h-3/4 ml-4">

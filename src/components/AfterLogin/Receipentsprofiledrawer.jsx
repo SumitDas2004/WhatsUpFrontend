@@ -11,14 +11,14 @@ export default function Receipentsprofiledrawer() {
         <nav className={` h-20 w-full bg-slate-400 flex items-center transition-all ${context.profileVisible?'visible':'hidden'}`}>
             <span className=' text-lg my-4'>
                 <button className=' cursor-pointer bg-transparent outline-none border-none text-white mx-8 text-xl' onClick={()=>context.setProfileVisible(false)}><i className="fa-solid fa-close"></i></button>
-                <span className='text-white font-semibold'>My Profile</span>
+                <span className='text-white font-semibold'>Friend's Info</span>
             </span>
         </nav>
         <section className={` bg-slate-100 w-full flex-grow flex flex-col items-center transition-all ${context.profileVisible?'visible':'hidden'}`}>
             {/* profile picture */}
             <section className=' h-80 w-full bg-white flex justify-evenly items-center flex-col mb-2'>
                 <span className=' transition rounded-full overflow-hidden h-48 w-48 flex jusfity-center items-center'>
-                    <img className='w-full h-full'src={context.chatSelected.picture || 'https://shorturl.at/cjtyQ'} alt="Image not found." />
+                    <img className='w-full h-full'src={context.chatSelected.picture || 'https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png'} alt="Image not found." />
                 </span>
                 <span className=' flex flex-col items-center'>
                 <span className='text-xl text-slate-700'>{context.chatSelected.username}</span>

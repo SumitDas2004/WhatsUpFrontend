@@ -32,7 +32,7 @@ export default function Sendfriendrequestform() {
     }
   }
 
-  const [textFieldValue, setTextFieldValue] = useState()
+  const [textFieldValue, setTextFieldValue] = useState("")
   const [height, setHeight] = useState(10)
   const [display, setdisplay] = useState('hidden')
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function Sendfriendrequestform() {
   return (
     <div className={` h-${height} overflow-hidden w-80 bg-white absolute z-30 rounded-sm shadow-lg flex justify-center items-center flex-col transition-all`}>
       <input onChange={(e) => setTextFieldValue(e.target.value)} onKeyUp={(e)=>{if(e.code==='Enter')sendFriendRequest(textFieldValue.toLowerCase())}} type="text" name="" id="" className={` w-3/4 outline-none border-b-2 border-slate-400 focus:border-blue-500 font-xl py-2 px-4 placeholder:flex placeholder:items-center placeholder:justify-center ${display}`} placeholder="Enter friend's Email" />
-      <input type='button' onClick={(e) => sendFriendRequest(textFieldValue.toLowerCase())} className={` hover:bg-blue-700 active:bg-blue-300 rounded-sm cursor-pointer bg-blue-500 text-white border-none outline-none px-4 py-2 mt-4 ${display}`} value='Send request' />
+      <input type='button' onClick={(e) => textFieldValue.trim().length>0 && sendFriendRequest(textFieldValue.trim().toLowerCase())} className={` hover:bg-blue-700 active:bg-blue-300 rounded-sm cursor-pointer bg-blue-500 text-white border-none outline-none px-4 py-2 mt-4 ${display}`} value='Send request' />
     </div>
   )
 }

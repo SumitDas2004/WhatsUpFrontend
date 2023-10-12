@@ -8,7 +8,7 @@ export default {
     extend: {
       backgroundImage:{
         'chatSectionBackground':"url('components/chatSectionBackground.jpg')",
-        'displayPictureBackground' : "url('https://shorturl.at/cjtyQ')"
+        'displayPictureBackground' : "url('https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png')"
       }
     },
   },
