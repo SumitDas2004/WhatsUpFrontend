@@ -20,7 +20,7 @@ export default function ChatMenuItems(props) {
       } flex items-center relative border-b-slate-50 border-b-2 hover:bg-[#F0F0F0] cursor-pointer select-none`}
     >
       <span className="h-14 w-14 rounded-full ml-3 overflow-hidden flex bg-slate-300">
-        <img
+        <img loading="lazy"
             className="bg-white"
           src={
             props.data.picture || 'https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png'}

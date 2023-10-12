@@ -18,7 +18,7 @@ export default function Receipentsprofiledrawer() {
             {/* profile picture */}
             <section className=' h-80 w-full bg-white flex justify-evenly items-center flex-col mb-2'>
                 <span className=' transition rounded-full overflow-hidden h-48 w-48 flex jusfity-center items-center'>
-                    <img className='w-full h-full'src={context.chatSelected.picture || 'https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png'} alt="Image not found." />
+                    <img loading="lazy" loading="lazy"  className='w-full h-full'src={context.chatSelected.picture || 'https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png'} alt="Image not found." />
                 </span>
                 <span className=' flex flex-col items-center'>
                 <span className='text-xl text-slate-700'>{context.chatSelected.username}</span>

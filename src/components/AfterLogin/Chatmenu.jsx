@@ -223,7 +223,7 @@ export default function Chatmenu(props) {
             }
             className=" cursor-pointer ml-3 h-14 w-14 rounded-full overflow-hidden flex justify-center "
           >
-            <img
+            <img loading="lazy"
             className="bg-white"
               src={context.loggedIn.picture || "https://res.cloudinary.com/dgajofeja/image/upload/v1697100260/akjmt1tl070y3ss6qodq.png"}
               alt="Image not found."

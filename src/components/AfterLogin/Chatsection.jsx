@@ -175,7 +175,7 @@ export default function Chatsection() {
             className=" ml-3 h-14 w-14 rounded-full overflow-hidden bg-white cursor-pointer flex" title='Profile Details'
             onClick={() => context.setProfileVisible(true)}
           >
-            <img src={context.chatSelected.picture} alt="Image not found."  />
+            <img loading="lazy" loading="lazy"  src={context.chatSelected.picture} alt="Image not found."  />
           </span>
           <span className="flex flex-col ml-5">
             <span className=" text-xl text-slate-800">
