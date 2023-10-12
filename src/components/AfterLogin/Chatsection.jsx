@@ -5,7 +5,7 @@ import { reactLocalStorage } from "reactjs-localstorage";
 import EmojiPicker from "emoji-picker-react";
 import { ClimbingBoxLoader } from "react-spinners";
 import CryptoJS from 'crypto-js';
-import ThreeDotLoader from "./threeDotLoader";
+import ThreeDotLoader from "./ThreeDotLoader";
 
 export default function Chatsection() {
   const context = useContext(Appcontext);
