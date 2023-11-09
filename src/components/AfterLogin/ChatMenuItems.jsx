@@ -29,7 +29,7 @@ export default function ChatMenuItems(props) {
       </span>
       <span className="flex flex-col ml-3 w-4/6">
         <span className="text-black text-lg w-5/6" title={props.data.username}>{props.data.username}</span>
-        <span className="text-slate-500 text-sm w-5/6 h-6 overflow-hidden" title={props.data.lastMessage.content && lastMessage>50?"...":lastMessage}>
+        <span className="text-slate-500 text-sm w-5/6 h-6 overflow-hidden" title={props.data.lastMessage.content && lastMessage.length>50?"...":lastMessage}>
           {props.data.lastMessage.content && lastMessage}
         </span>
       </span>
